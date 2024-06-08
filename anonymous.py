@@ -3,6 +3,13 @@ import pandas as pd
 import numpy as np
 import plotly.express as px
 
+st.set_page_config(
+    page_title="Anonymous Digital Dashboar",
+    page_icon="download.jpg",
+    layout="wide",
+    initial_sidebar_state="expanded",
+)
+
 st.sidebar.image("logo.svg")
 
 st.header("Anonymous Profitability Dashboard")
