@@ -3,7 +3,9 @@ import pandas as pd
 import numpy as np
 import plotly.express as px
 
-st.header("Client Profitability Analysis Dashboard")
+st.sidebar.image("logo.svg")
+
+st.header("Anonymous Profitability Dashboard")
 
 st.sidebar.header("Upload Files")
 
@@ -36,8 +38,8 @@ def dataframe_generation(df,rate,customer):
     df = df.dropna()
     df.loc[:, 'Time'] = df.loc[:, 'Time'].astype(int)
     df.loc[:, 'salary'] = df.loc[:, 'salary'].astype(int)
-    df.loc[:,"minute_rate"] = df["salary"]/(22*24*60)
-    df.loc[:,'spend'] = df['Time']*df['minute_rate'] 
+    df.loc[:,"minute_rate"] = df["salary"]/(22*8*60)
+    df.loc[:,'spend'] = df['Time']*df['minute_rate']
     pd.set_option('future.no_silent_downcasting', True)
     df_clientwise = df.pivot_table(index='Client',columns='Employee',values=['spend']).fillna(0)
     df_clientwise['total_spend'] = df_clientwise.sum(axis=1).apply(int)
@@ -51,7 +53,7 @@ def dataframe_generation(df,rate,customer):
     df_empwise = df_empwise.reset_index()
     df_empwise.columns = [''.join(col).strip() if isinstance(col, tuple) else col for col in df_empwise.columns]
     df_timewise = df.pivot_table(index='Client',columns='Employee',values=['Time']).fillna(0)
-    df_timewise['Total_time_(mins)'] = df_timewise.sum(axis=1).apply(int)
+    df_timewise['Total_time_(mins)'] = df_timewise.sum(axis=1).apply(float)
     df_timewise['Total_time_(hrs)'] = df_timewise.loc[:,"Total_time_(mins)"]/60
     df_timewise = df_timewise.reset_index()
     df_timewise.columns = [''.join(col).strip() if isinstance(col, tuple) else col for col in df_timewise.columns]
