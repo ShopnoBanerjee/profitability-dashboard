@@ -10,6 +10,7 @@ This is a Client Project for Anonymous Digital ! This interactive web applicatio
 
 ## Features
 - **Drag and Drop CSV Upload:** Effortlessly upload your Monthly Job Sheet, Client Sheet, and Salary Sheet to generate a dynamic dashboard.
+
 ![Screenshot 2024-06-09 081310](https://github.com/ShopnoBanerjee/profitability-dashboard/assets/158451331/f8099be8-e848-4aac-9773-670478f4842f)
 
 
