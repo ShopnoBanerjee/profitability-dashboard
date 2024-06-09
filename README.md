@@ -14,7 +14,7 @@ This is a Client Project for Anonymous Digital ! This interactive web applicatio
 
 
 
-Template Downloads:** Access pre-formatted templates to ensure your data is correctly structured for smooth integration and analysis.
+- **Template Downloads:** Access pre-formatted templates to ensure your data is correctly structured for smooth integration and analysis.
 
 ![Screenshot 2024-06-09 081520](https://github.com/ShopnoBanerjee/profitability-dashboard/assets/158451331/0f77e868-cbba-495d-96e8-dd9aeebba4b6)
 
