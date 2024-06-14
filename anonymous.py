@@ -167,7 +167,7 @@ if client_sheet and salary_sheet and month_sheet is not None:
     with col1:
         st.metric(label = "Net Profit",value=f"₹ {net_profit}")
     with col2:
-        st.metric(label = "Time Spent",value=f"{total_time/60 :0.2f} hrs")
+        st.metric(label = "Total Man-Hours",value=f"{total_time/60 :0.2f} hrs")
     with col3:
         st.metric(label = "Money per minute", value = f"{net_profit/total_time :0.2f} ₹/mins")
     
@@ -188,4 +188,5 @@ if client_sheet and salary_sheet and month_sheet is not None:
 
   
 
+    # profit percent metric
     
