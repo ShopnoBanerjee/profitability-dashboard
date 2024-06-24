@@ -43,6 +43,16 @@ def dataframe_generation(df,rate,customer):
     df.loc[df['Time'] == 'all day', 'Time'] = '480'
     df.loc[df['Time'] == 'done earlier', 'Time'] = np.nan
     df = df.dropna()
+    df['Client'] = df['Client'].replace({'Flame and Grill': 'Speciality',
+                                     'Oh! Calcutta' : 'Speciality',
+                                     'Cafe Mezzuna' : 'Speciality',
+                                     'Riyasat':'Speciality',
+                                     'Flame and Grill': 'Speciality',
+                                     'Sigree Global Grill' : 'Speciality',
+                                     'Jungle Safari' : 'Speciality',
+                                     'Dariole' : 'Speciality',
+                                     'Haka' : 'Speciality'
+                                     })
     df.loc[:, 'Time'] = df.loc[:, 'Time'].astype(int)
     df.loc[:, 'salary'] = df.loc[:, 'salary'].astype(int)
     df.loc[:,"minute_rate"] = df["salary"]/(22*8*60)
@@ -184,9 +194,3 @@ if client_sheet and salary_sheet and month_sheet is not None:
     
     st.plotly_chart(fig_time_vs_profit)
         
-    
-
-  
-
-    # profit percent metric
-    
