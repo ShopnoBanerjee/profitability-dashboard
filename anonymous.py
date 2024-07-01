@@ -105,13 +105,13 @@ with st.sidebar.expander("Download Templates"):
             mime="text/csv",
         )    
     st.download_button(
-            label="Download Monthly Job Sheet CSV template",
+            label="Download Salary Sheet CSV template",
             data=salary_sheet_csv,
             file_name="salary_sheet.csv",
             mime="text/csv",
         )    
     st.download_button(
-            label="Download Monthly Job Sheet CSV template",
+            label="Download Billing Sheet CSV template",
             data=client_sheet_csv,
             file_name="client_sheet.csv",
             mime="text/csv",
