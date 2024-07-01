@@ -105,13 +105,13 @@ with st.sidebar.expander("Download Templates"):
             mime="text/csv",
         )    
     st.download_button(
-            label="Download Monthly Job Sheet CSV template",
+            label="Download Salary Sheet CSV template",
             data=salary_sheet_csv,
             file_name="salary_sheet.csv",
             mime="text/csv",
         )    
     st.download_button(
-            label="Download Monthly Job Sheet CSV template",
+            label="Download Billing Sheet CSV template",
             data=client_sheet_csv,
             file_name="client_sheet.csv",
             mime="text/csv",
@@ -181,6 +181,7 @@ if client_sheet and salary_sheet and month_sheet is not None:
     with col3:
         st.metric(label = "Money per minute", value = f"{net_profit/total_time :0.2f} ₹/mins")
     
+    st.plotly_chart(fig_time_vs_profit)
 
     col1, col2 = st.columns(2)
     with col1:
@@ -190,7 +191,3 @@ if client_sheet and salary_sheet and month_sheet is not None:
     with col2:
         st.plotly_chart(fig_profit_per_client_pie)
         st.plotly_chart(fig_time_per_client_pie)
-    
-    
-    st.plotly_chart(fig_time_vs_profit)
-        
