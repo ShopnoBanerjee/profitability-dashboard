@@ -38,11 +38,6 @@ if client_sheet is not None:
 def dataframe_generation(df,rate,customer):
     df = df[['Client','Assign to','Time']]
     df = df.rename(columns={'Assign to':'Employee'})
-    df = df.merge(rate)
-    df = df.merge(customer)
-    df.loc[df['Time'] == 'all day', 'Time'] = '480'
-    df.loc[df['Time'] == 'done earlier', 'Time'] = np.nan
-    df = df.dropna()
     df['Client'] = df['Client'].replace({'Flame and Grill': 'Speciality',
                                      'Oh! Calcutta' : 'Speciality',
                                      'Cafe Mezzuna' : 'Speciality',
@@ -53,6 +48,11 @@ def dataframe_generation(df,rate,customer):
                                      'Dariole' : 'Speciality',
                                      'Haka' : 'Speciality'
                                      })
+    df = df.merge(rate)
+    df = df.merge(customer)
+    df.loc[df['Time'] == 'all day', 'Time'] = '480'
+    df.loc[df['Time'] == 'done earlier', 'Time'] = np.nan
+    df = df.dropna()
     df.loc[:, 'Time'] = df.loc[:, 'Time'].astype(int)
     df.loc[:, 'salary'] = df.loc[:, 'salary'].astype(int)
     df.loc[:,"minute_rate"] = df["salary"]/(22*8*60)
